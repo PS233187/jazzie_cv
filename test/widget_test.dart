@@ -1,30 +1,46 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:jazzies_cv/main.dart';
+import 'package:jazzies_cv/pages/my_experience.dart';
+import 'package:lottie/lottie.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('MyExperiencePage UI Test', (WidgetTester tester) async {
+    // Build MyExperiencePage and trigger a frame.
+    await tester.pumpWidget(const MaterialApp(home: MyExperiencePage()));
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Verify the AppBar title
+    expect(find.text('My Experience'), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+    // Verify the Lottie animation is present
+    expect(find.byType(Lottie), findsOneWidget);
+
+    // Verify the Skills header
+    expect(find.text('Skills'), findsOneWidget);
+
+    // Verify the presence of a specific skill
+    expect(find.text('Flutter'), findsOneWidget);
+    expect(find.text('Figma'), findsOneWidget);
+    expect(find.text('JavaScript'), findsOneWidget);
+    expect(find.text('WordPress'), findsOneWidget);
+
+    // Verify initial state of the popup explanation visibility
+    expect(find.text('Experience'), findsNothing);
+
+    // Tap the Lottie animation to show the popup explanation
+    await tester.tap(find.byType(Lottie));
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Verify the popup explanation is visible
+    expect(find.text('Experience'), findsOneWidget);
+
+    // Verify the close button is present in the popup
+    expect(find.byIcon(Icons.close), findsOneWidget);
+
+    // Tap the close button to hide the popup explanation
+    await tester.tap(find.byIcon(Icons.close));
+    await tester.pump();
+
+    // Verify the popup explanation is not visible anymore
+    expect(find.text('Experience'), findsNothing);
   });
 }
