@@ -17,8 +17,8 @@ class CustomTile extends StatelessWidget {
       child: Container(
         width: 100,
         height: 100,
-        margin: EdgeInsets.all(7),
-        padding: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(7),
+        padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           border: Border.all(color: Colors.white),
           borderRadius: BorderRadius.circular(10),
@@ -28,7 +28,7 @@ class CustomTile extends StatelessWidget {
               color: Colors.black.withOpacity(0.2), // Shadow color with opacity
               spreadRadius: 2, // Spread radius
               blurRadius: 5, // Blur radius
-              offset: Offset(0, 3), // Shadow position
+              offset: const Offset(0, 3), // Shadow position
             ),
           ],
         ),

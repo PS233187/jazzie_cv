@@ -59,7 +59,7 @@ class _SkillsState extends State<Skills> {
               color: Colors.white.withOpacity(0.3),
               spreadRadius: 3,
               blurRadius: 5,
-              offset: Offset(0, 3), // changes position of shadow
+              offset: const Offset(0, 3), // changes position of shadow
             ),
           ],
         ),
@@ -83,7 +83,7 @@ class _SkillsState extends State<Skills> {
             ),
             Expanded(
               child: Column(
-                mainAxisSize: MainAxisSize.min, // Ensures the column takes minimum vertical space
+                mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
@@ -135,12 +135,12 @@ class _SkillsState extends State<Skills> {
                     children: [
                       IconButton(
                         onPressed: _decreasePercentage,
-                        icon: Icon(Icons.remove),
+                        icon: const Icon(Icons.remove),
                         color: Colors.white,
                       ),
                       IconButton(
                         onPressed: _increasePercentage,
-                        icon: Icon(Icons.add),
+                        icon: const Icon(Icons.add),
                         color: Colors.white,
                       ),
                     ],

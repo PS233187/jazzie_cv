@@ -16,23 +16,44 @@ class _MyProjectsPageState extends State<MyProjectsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'My Projects',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 30,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(70.0),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Color(0xFF000000), // achtergrondkleur van de appbalk
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(15.0)),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5), // kleur van de schaduw
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: Offset(0, 2), // verplaatsing van de schaduw
+              ),
+            ],
+          ),
+          child: AppBar(
+            title: Text(
+              'My projects',
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'Ink Free',
+                fontSize: 30,
+              ),
+            ),
+            centerTitle: true,
+            backgroundColor: Colors.transparent, // achtergrondkleur van de appbalk transparant maken
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(15.0)),
+            ),
+            iconTheme: IconThemeData(color: Colors.white),
           ),
         ),
-        backgroundColor: const Color(0xFF000000),
-        centerTitle: true,
-        iconTheme: IconThemeData(color: Colors.white),
       ),
-      backgroundColor: const Color(0xFF000000),
+      backgroundColor: Color(0xFF000000),
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 60.0),
+            padding: EdgeInsets.only(top: 60.0),
             child: ImageSlideshow(
               width: double.infinity,
               height: 150,
@@ -40,35 +61,18 @@ class _MyProjectsPageState extends State<MyProjectsPage> {
               indicatorColor: Colors.blue,
               indicatorBackgroundColor: Colors.grey,
               children: [
-                Image.asset(
-                  'assets/images/splashscreen.JPG',
-                  height: 150,
-                ),
-                Image.asset(
-                  'assets/images/samen_betalen.png',
-                  height: 150,
-                ),
-                Image.asset(
-                  'assets/images/userdiagram.png',
-                  height: 150,
-                ),
-                Image.asset(
-                  'assets/images/groenevingers.JPG',
-                  height: 150,
-                ),
-                Image.asset(
-                  'assets/images/workingout.png',
-                  height: 150,
-                ),
-                Image.asset(
-                  'assets/images/cartoon_one.png',
-                  height: 150,
-                ),
+                Image.asset('assets/images/splashscreen.png', height: 150),
+                Image.asset('assets/images/samen_betalen.png', height: 150),
+                Image.asset('assets/images/userrdiagram.png', height: 150),
+                Image.asset('assets/images/groenevingers.png', height: 150),
+                Image.asset('assets/images/dashboard_youcare.png', height: 150),
+                Image.asset('assets/images/login_youcare.png', height: 150),
+                Image.asset('assets/images/eenvoud.png', height: 150),
               ],
               onPageChanged: (value) {
                 print('Page changed: $value');
               },
-              autoPlayInterval: 3000,
+              autoPlayInterval: 2000,
               isLoop: true,
             ),
           ),
@@ -87,7 +91,7 @@ class _MyProjectsPageState extends State<MyProjectsPage> {
                         color: Colors.white.withOpacity(0.4),
                         spreadRadius: 3,
                         blurRadius: 5,
-                        offset: Offset(0, 4), // changes position of shadow
+                        offset: Offset(0, 4),
                       ),
                     ],
                   ),
@@ -113,7 +117,6 @@ class _MyProjectsPageState extends State<MyProjectsPage> {
                                 });
                               },
                               color: Color(0xFFA8A7A7),
-
                               onChange: (value) => print('Progress $value%'),
                               brushSize: 20,
                               child: AnimatedOpacity(
@@ -133,10 +136,7 @@ class _MyProjectsPageState extends State<MyProjectsPage> {
                           children: [
                             Row(
                               children: [
-                                Icon(
-                                  Icons.arrow_back,
-                                  color: Colors.white, // Set the color to white
-                                ),
+                                Icon(Icons.arrow_back, color: Colors.white),
                                 SizedBox(width: 5),
                                 Text(
                                   'Scratch me',
@@ -149,9 +149,8 @@ class _MyProjectsPageState extends State<MyProjectsPage> {
                               ],
                             ),
                             SizedBox(height: 10),
-                            // Add spac e here
-                            Container( // Wrap ElevatedButton with Container
-                              margin: EdgeInsets.only(left: 25), // Apply margin as needed
+                            Container(
+                              margin: EdgeInsets.only(left: 25),
                               child: ElevatedButton(
                                 onPressed: () {
                                   scratchKey.currentState?.reset(
@@ -162,7 +161,8 @@ class _MyProjectsPageState extends State<MyProjectsPage> {
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(16),
                                   ),
-                                  padding: EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 12, horizontal: 24),
                                   backgroundColor: Color(0xFF003D72),
                                 ),
                                 child: Text(
@@ -184,9 +184,8 @@ class _MyProjectsPageState extends State<MyProjectsPage> {
               ],
             ),
           ),
-        ], // Ad
-        //
-      ), //
-    ); //
+        ],
+      ),
+    );
   }
 }

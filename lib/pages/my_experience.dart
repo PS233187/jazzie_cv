@@ -27,18 +27,38 @@ class _MyExperiencePageState extends State<MyExperiencePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'My Experience',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 30,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(70.0),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Color(0xFF000000), // achtergrondkleur van de appbalk
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(15.0)),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5), // kleur van de schaduw
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: Offset(0, 2), // verplaatsing van de schaduw
+              ),
+            ],
+          ),
+          child: AppBar(
+            title: Text(
+              'My experience',
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'Ink Free',
+                fontSize: 30,
+              ),
+            ),
+            centerTitle: true,
+            backgroundColor: Colors.transparent, // achtergrondkleur van de appbalk transparant maken
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(15.0)),
+            ),
+            iconTheme: IconThemeData(color: Colors.white),
           ),
         ),
-        backgroundColor: const Color(0xFF000000),
-        centerTitle: true,
-        iconTheme: IconThemeData(
-            color: Colors.white), // This changes the back button color to white
       ),
       backgroundColor: Color(0xFF000000),
       body: Stack(

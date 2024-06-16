@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import '../componenten/emoticons.dart';
 import '../componenten/personal_tiles.dart'; // Importeer PersonalTile
-import '../componenten/skill_tiles.dart';
 import 'package:intl/intl.dart';
 
 class MyAboutmePage extends StatefulWidget {
@@ -12,35 +10,33 @@ class MyAboutmePage extends StatefulWidget {
 }
 
 class _MyAboutmePageState extends State<MyAboutmePage> {
-  bool isPopupExplanationVisible = false;
-
-  void closePopup() {
-    setState(() {
-      isPopupExplanationVisible = false;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     DateTime now = DateTime.now();
     String formattedDate = DateFormat('dd MMMM yyyy').format(now);
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'About me',
-          style: TextStyle(
-            color: const Color(0xFFFFFFFF),
-            fontSize: 30,
+      return Scaffold(
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(70.0),
+          child: AppBar(
+            title: const Text(
+              'About me',
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'Ink Free',
+                fontSize: 30,
+              ),
+            ),
+            centerTitle: true,
+            backgroundColor: Color(0xFF000000),
+            elevation: 10,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(15.0)),
+            ),
+            shadowColor: Colors.white,
+            iconTheme: IconThemeData(color: Colors.white), // Hiermee wordt de kleur van de terugknop (back arrow) ingesteld op wit
           ),
         ),
-        backgroundColor: const Color(0xFF000000),
-        centerTitle: true,
-        iconTheme: const IconThemeData(
-          color: Color(
-              0xFFFFFFFF),
-        ),
-      ),
       backgroundColor: Colors.transparent,
       body: Stack(
         children: [

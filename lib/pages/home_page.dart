@@ -6,13 +6,13 @@ import 'my_experience.dart';
 import 'my_projects.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
-  _HomePageState createState() => _HomePageState();
+  HomePageState createState() => HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
+class HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<Offset> _leftAnimation;
   late Animation<Offset> _rightAnimation;
@@ -22,11 +22,11 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 1200),
+      duration: const Duration(milliseconds: 1200),
     );
 
     _leftAnimation = Tween<Offset>(
-      begin: Offset(-2.0, 0),
+      begin: const Offset(-2.0, 0),
       end: Offset.zero,
     ).animate(CurvedAnimation(
       parent: _animationController,
@@ -34,14 +34,13 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     ));
 
     _rightAnimation = Tween<Offset>(
-      begin: Offset(2.0, 0),
+      begin: const Offset(2.0, 0),
       end: Offset.zero,
     ).animate(CurvedAnimation(
       parent: _animationController,
       curve: Curves.easeInOut,
     ));
 
-    // Start the animation when the page is first loaded
     _animationController.forward();
   }
 
@@ -52,10 +51,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   }
 
   Future<void> _handleRefresh() async {
-    // Wait for 2 seconds (you can replace this with your own refresh logic)
-    await Future.delayed(Duration(seconds: 2));
-
-    // Reset and start the animations again
+    await Future.delayed(const Duration(seconds: 2));
     _animationController.reset();
     _animationController.forward();
   }
@@ -63,41 +59,56 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(90.0),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Color(0xFF000000), // achtergrondkleur van de appbalk
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(15.0)),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.9), // kleur van de schaduw
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: Offset(0, 2), // verplaatsing van de schaduw
+              ),
+            ],
+          ),
+          child: AppBar(
+            title: Text(
               'Jazzies',
               style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'Aovel Sans Rounded',
-                fontSize: 45,
+                fontSize: 40,
               ),
             ),
-          ],
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.black,
-        bottom: PreferredSize(
-          preferredSize: Size.fromHeight(50),
-          child: SizedBox(
-            height: 50,
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
-              child: Align(
-                alignment: Alignment.center,
-                child: Text(
-                  'CV app',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: 'Aovel Sans Rounded',
-                    fontSize: 30,
-
+            bottom: PreferredSize(
+              preferredSize: const Size.fromHeight(5), // Verhoogde hoogte voor meer ruimte
+              child: SizedBox(
+                height: 50,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 1.0),
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      'CV app',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Ink Free',
+                        fontSize: 26,
+                      ),
+                    ),
                   ),
                 ),
               ),
             ),
+            centerTitle: true,
+            backgroundColor: Colors.transparent, // achtergrondkleur van de appbalk transparant maken
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(15.0)),
+            ),
+            iconTheme: IconThemeData(color: Colors.white),
           ),
         ),
       ),
@@ -106,22 +117,20 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         child: ListView(
           children: [
             Container(
-              padding: EdgeInsets.fromLTRB(50.0, 40.0, 50.0, 10.0),
+              padding: const EdgeInsets.fromLTRB(50.0, 40.0, 50.0, 10.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'Welkom!',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 30,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Text(
-                    'Vind hier meer informatie '
-                        'over wie ik ben en mijn ervaring in programmeren!',
+                    'Vind hier meer informatie over wie ik ben en mijn ervaring in programmeren!',
                     style: TextStyle(
                       color: Colors.grey[700],
                       fontSize: 18,
@@ -134,31 +143,27 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             GridView.count(
               crossAxisCount: 2,
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              padding: EdgeInsets.all(35),
+              physics: const NeverScrollableScrollPhysics(),
+              padding: const EdgeInsets.all(35),
               children: [
                 AnimatedBuilder(
                   animation: _animationController,
                   builder: (context, child) {
                     return SlideTransition(
                       position: _leftAnimation,
-                      child: GestureDetector(
-
-                        child: CustomTile(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => MyExperiencePage()),
-                            );
-                          },
-                          imagePath: 'assets/images/experience.jpg',
-
-                        ),
+                      child: CustomTile(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyExperiencePage()),
+                          );
+                        },
+                        imagePath: 'assets/images/experience.jpg',
                       ),
                     );
                   },
                 ),
-
                 AnimatedBuilder(
                   animation: _animationController,
                   builder: (context, child) {
@@ -168,7 +173,8 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => MyProjectsPage()),
+                            MaterialPageRoute(
+                                builder: (context) => const MyProjectsPage()),
                           );
                         },
                         imagePath: 'assets/images/project.png',
@@ -185,7 +191,8 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => MyAboutmePage()),
+                            MaterialPageRoute(
+                                builder: (context) => const MyAboutmePage()),
                           );
                         },
                         imagePath: 'assets/images/aboutme.jpg',
@@ -202,7 +209,8 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => MyExamsPage()),
+                            MaterialPageRoute(
+                                builder: (context) => const MyExamsPage()),
                           );
                         },
                         imagePath: 'assets/images/exams.png',
