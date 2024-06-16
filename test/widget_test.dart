@@ -1,28 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:jazzies_cv/pages/home_page.dart';
-import 'package:jazzies_cv/pages/my_experience.dart';
+import 'package:intl/intl.dart';
+import 'package:jazzies_cv/pages/about_me.dart';
+import 'package:jazzies_cv/main.dart';
 
 void main() {
-  testWidgets('HomePage UI Test', (WidgetTester tester) async {
+  testWidgets('MyAboutmePage renders correctly', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(MaterialApp(
-      home: HomePage(),
+      home: MyAboutmePage(),
     ));
 
-    // Verify the initial text 'Welkom!' is present.
-    expect(find.text('Welkom!'), findsOneWidget);
+    // Verwacht dat 'About me' in de appbalk zit
+    expect(find.text('About me'), findsOneWidget);
 
-    // Tap on the first GestureDetector (assuming it navigates to MyExperiencePage).
-    await tester.tap(find.byType(GestureDetector).first);
-    await tester.pumpAndSettle(Duration(seconds: 1)); // Wait for animations to complete.
+    // Verwacht dat 'Hi, its Jasmin!' ergens in de widget voorkomt
+    expect(find.text('Hi, its Jasmin!'), findsOneWidget);
 
-    // Verify that the navigation happened correctly.
-    expect(find.byType(MyExperiencePage), findsOneWidget);
+    // Verwacht dat de datum correct wordt weergegeven
+    String formattedDate = DateFormat('dd MMMM yyyy').format(DateTime.now());
+    expect(find.text(formattedDate), findsOneWidget);
 
-    // You can add more tests as needed to validate other aspects of the UI.
-
-    // Example of checking a specific widget on MyExperiencePage if needed:
-    // expect(find.text('My Experience Page'), findsOneWidget);
+    // Verwacht dat alle persoonlijke items correct worden weergegeven
+    expect(find.text('Family'), findsOneWidget);
+    expect(find.text('My dog'), findsOneWidget);
+    expect(find.text('Creative'), findsOneWidget);
+    expect(find.text('Working out'), findsOneWidget);
+    expect(find.text('travel'), findsOneWidget);
   });
 }
