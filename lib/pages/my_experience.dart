@@ -13,9 +13,9 @@ class _MyExperiencePageState extends State<MyExperiencePage> {
   bool isPopupExplanationVisible = false;
   final List<Map<String, dynamic>> skills = [
     {'imagePath': 'assets/images/flutter_img.png', 'skillName': 'Flutter', 'initialPercentage': 50, 'progressBarColor': Colors.blue, 'progressBarFontSize': 15.0,},
-    {'imagePath': 'assets/images/figma_img.png', 'skillName': 'Figma', 'initialPercentage': 70, 'progressBarColor': Colors.green, 'progressBarFontSize': 15.0,},
+    {'imagePath': 'assets/images/figma_img.png', 'skillName': 'Figma', 'initialPercentage': 60, 'progressBarColor': Colors.green, 'progressBarFontSize': 15.0,},
     {'imagePath': 'assets/images/js_img.png', 'skillName': 'JavaScript', 'initialPercentage': 30, 'progressBarColor': Colors.orange, 'progressBarFontSize': 15.0,},
-    {'imagePath': 'assets/images/wordpress_img.png', 'skillName': 'WordPress', 'initialPercentage': 90, 'progressBarColor': Colors.purple, 'progressBarFontSize': 15.0,},
+    {'imagePath': 'assets/images/wordpress_img.png', 'skillName': 'WordPress', 'initialPercentage': 65, 'progressBarColor': Colors.purple, 'progressBarFontSize': 15.0,},
   ];
 
   void closePopup() {

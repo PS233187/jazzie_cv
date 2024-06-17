@@ -78,6 +78,7 @@ class _MyAboutmePageState extends State<MyAboutmePage> {
                         ),
                         Icon(
                           Icons.favorite_border,
+                          color: Colors.red,
                         ),
                       ],
                     ),

@@ -42,7 +42,7 @@ class _MyExamsPageState extends State<MyExamsPage> {
             height: 260, // Bepaal de hoogte van de afbeelding
             width: double.infinity, // Neem de hele breedte in
             child: Image.asset(
-              'assets/images/exams_bg.png',
+              'assets/images/exams_t.png',
               fit: BoxFit.cover,
             ),
           ),
@@ -55,7 +55,15 @@ class _MyExamsPageState extends State<MyExamsPage> {
                 topLeft: Radius.circular(50.0),
                 topRight: Radius.circular(50.0),
               ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.9), // Adjust opacity for shadow intensity
+                  offset: Offset(4.0, 4.0), // Adjust offset for shadow position
+                  blurRadius: 10.0, // Adjust blurRadius for shadow softness
+                ),
+              ],
             ),
+
             child: Center(
               child: DefaultTextStyle(
                 style: TextStyle(

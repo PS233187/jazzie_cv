@@ -84,7 +84,8 @@ class HomePageState extends State<HomePage> with SingleTickerProviderStateMixin 
               ),
             ),
             bottom: PreferredSize(
-              preferredSize: const Size.fromHeight(5), // Verhoogde hoogte voor meer ruimte
+              preferredSize: const Size.fromHeight(5),
+              // Verhoogde hoogte voor meer ruimte
               child: SizedBox(
                 height: 50,
                 child: Padding(
@@ -104,9 +105,11 @@ class HomePageState extends State<HomePage> with SingleTickerProviderStateMixin 
               ),
             ),
             centerTitle: true,
-            backgroundColor: Colors.transparent, // achtergrondkleur van de appbalk transparant maken
+            backgroundColor: Colors.transparent,
+            // achtergrondkleur van de appbalk transparant maken
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.vertical(bottom: Radius.circular(15.0)),
+              borderRadius: BorderRadius.vertical(
+                  bottom: Radius.circular(15.0)),
             ),
             iconTheme: IconThemeData(color: Colors.white),
           ),
@@ -117,12 +120,13 @@ class HomePageState extends State<HomePage> with SingleTickerProviderStateMixin 
         child: ListView(
           children: [
             Container(
-              padding: const EdgeInsets.fromLTRB(50.0, 40.0, 50.0, 10.0),
+              padding: const EdgeInsets.fromLTRB(40.0, 40.0, 40.0, 40.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                // Verticaal centreren van de inhoud
                 children: [
                   const Text(
-                    'Welkom!',
+                    'Welcome!',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 30,
@@ -130,7 +134,9 @@ class HomePageState extends State<HomePage> with SingleTickerProviderStateMixin 
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    'Vind hier meer informatie over wie ik ben en mijn ervaring in programmeren!',
+                    'Navigate through my profile and programming journey in my CV app!',
+                    textAlign: TextAlign.center,
+                    // Horizontaal centreren van de tekst
                     style: TextStyle(
                       color: Colors.grey[700],
                       fontSize: 18,
@@ -219,6 +225,17 @@ class HomePageState extends State<HomePage> with SingleTickerProviderStateMixin 
                   },
                 ),
               ],
+            ),
+
+            Container(
+
+              alignment: Alignment.center,
+              child: Image.asset(
+                'assets/images/welcome.png',
+                // voeg hier het pad naar je afbeelding in
+                width: 200,
+                height: 150,
+              ),
             ),
           ],
         ),

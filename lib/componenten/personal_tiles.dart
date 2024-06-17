@@ -17,6 +17,8 @@ class PersonalItem extends StatefulWidget {
 }
 
 class _PersonalItemState extends State<PersonalItem> {
+  bool isFavorite = false; // State variable to track favorite status
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -83,6 +85,15 @@ class _PersonalItemState extends State<PersonalItem> {
                   ),
                 ],
               ),
+            ),
+            IconButton(
+              icon: Icon(
+                isFavorite ? Icons.favorite : Icons.favorite_border,
+                color: isFavorite ? Colors.red : Colors.black,
+              ),
+              onPressed: () => setState(() {
+                isFavorite = !isFavorite;
+              }),
             ),
           ],
         ),

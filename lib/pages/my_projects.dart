@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:scratcher/scratcher.dart';
 
+import '../componenten/scratch_tiles.dart';
+
 class MyProjectsPage extends StatefulWidget {
   const MyProjectsPage({Key? key}) : super(key: key);
 
@@ -12,6 +14,19 @@ class MyProjectsPage extends StatefulWidget {
 class _MyProjectsPageState extends State<MyProjectsPage> {
   final scratchKey = GlobalKey<ScratcherState>();
   double _opacity = 0.0;
+  bool _isScratching = false;
+
+  void _startScratching() {
+    setState(() {
+      _isScratching = true;
+    });
+  }
+
+  void _stopScratching() {
+    setState(() {
+      _isScratching = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +35,14 @@ class _MyProjectsPageState extends State<MyProjectsPage> {
         preferredSize: const Size.fromHeight(70.0),
         child: Container(
           decoration: BoxDecoration(
-            color: Color(0xFF000000), // achtergrondkleur van de appbalk
+            color: Color(0xFF000000),
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(15.0)),
             boxShadow: [
               BoxShadow(
-                color: Colors.grey.withOpacity(0.5), // kleur van de schaduw
+                color: Colors.grey.withOpacity(0.5),
                 spreadRadius: 5,
                 blurRadius: 7,
-                offset: Offset(0, 2), // verplaatsing van de schaduw
+                offset: Offset(0, 2),
               ),
             ],
           ),
@@ -41,7 +56,7 @@ class _MyProjectsPageState extends State<MyProjectsPage> {
               ),
             ),
             centerTitle: true,
-            backgroundColor: Colors.transparent, // achtergrondkleur van de appbalk transparant maken
+            backgroundColor: Colors.transparent,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(15.0)),
             ),
@@ -76,109 +91,58 @@ class _MyProjectsPageState extends State<MyProjectsPage> {
               isLoop: true,
             ),
           ),
-          SizedBox(height: 90),
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+          SizedBox(height: 20),
+          Expanded(
+            child: Stack(
               children: [
                 Container(
-                  padding: const EdgeInsets.all(9),
+                  margin: EdgeInsets.only(top: 20),
+                  padding: const EdgeInsets.all(25),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF121212),
-                    borderRadius: BorderRadius.circular(16),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.white.withOpacity(0.4),
-                        spreadRadius: 3,
-                        blurRadius: 5,
-                        offset: Offset(0, 4),
-                      ),
-                    ],
+                    color: Color(0xFFFFFFFF),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(50.0),
+                      topRight: Radius.circular(50.0),
+                    ),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Row(
-                      children: [
-                        Container(
-                          width: 120,
-                          height: 110,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
-                            child: Scratcher(
-                              key: scratchKey,
-                              accuracy: ScratchAccuracy.medium,
-                              threshold: 50,
-                              onThreshold: () {
-                                setState(() {
-                                  _opacity = 1;
-                                });
-                              },
-                              color: Color(0xFFA8A7A7),
-                              onChange: (value) => print('Progress $value%'),
-                              brushSize: 20,
-                              child: AnimatedOpacity(
-                                duration: Duration(milliseconds: 500),
-                                opacity: _opacity,
-                                child: const Image(
-                                  image: AssetImage('assets/images/cartoon_scratch.png'),
-                                  width: 200,
-                                ),
-                              ),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Exams',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xff000000),
                             ),
                           ),
-                        ),
-                        SizedBox(width: 10),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          Icon(
+                            Icons.favorite_border,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Expanded(
+                        child: ListView(
                           children: [
-                            Row(
-                              children: [
-                                Icon(Icons.arrow_back, color: Colors.white),
-                                SizedBox(width: 5),
-                                Text(
-                                  'Scratch me',
-                                  style: TextStyle(
-                                    color: const Color(0xFFFFFFFF),
-                                    fontSize: 18,
-                                    fontStyle: FontStyle.italic,
-                                  ),
-                                ),
-                              ],
+                            ScratchItem(
+                              imagePath: 'assets/images/cartoon_scratch.png',
                             ),
-                            SizedBox(height: 10),
-                            Container(
-                              margin: EdgeInsets.only(left: 25),
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  scratchKey.currentState?.reset(
-                                    duration: Duration(milliseconds: 2000),
-                                  );
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(16),
-                                  ),
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: 12, horizontal: 24),
-                                  backgroundColor: Color(0xFF003D72),
-                                ),
-                                child: Text(
-                                  'Reset',
-                                  style: TextStyle(
-                                    color: const Color(0xFFFFFFFF),
-                                    fontSize: 18,
-                                    fontStyle: FontStyle.italic,
-                                  ),
-                                ),
-                              ),
-                            )
+                            ScratchItem(
+                              imagePath: 'assets/images/help_patato.png',
+                            ),
+                            ScratchItem(
+                              imagePath: 'assets/images/hopto.png',
+                            ),
+                            // Voeg meer ScratchItems toe indien nodig
                           ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ],
