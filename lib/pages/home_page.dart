@@ -119,11 +119,15 @@ class HomePageState extends State<HomePage> with SingleTickerProviderStateMixin 
         onRefresh: _handleRefresh,
         child: ListView(
           children: [
+          // Wrap content in a Column
+          Column(
+          mainAxisAlignment: MainAxisAlignment.start,  // Align content at the top
+          children: [
             Container(
-              padding: const EdgeInsets.fromLTRB(40.0, 40.0, 40.0, 40.0),
+              padding: const EdgeInsets.fromLTRB(40.0, 10.0, 40.0, 0.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                // Verticaal centreren van de inhoud
+                // Vertically center content within this inner column
                 children: [
                   const Text(
                     'Welcome!',
@@ -136,7 +140,6 @@ class HomePageState extends State<HomePage> with SingleTickerProviderStateMixin 
                   Text(
                     'Navigate through my profile and programming journey in my CV app!',
                     textAlign: TextAlign.center,
-                    // Horizontaal centreren van de tekst
                     style: TextStyle(
                       color: Colors.grey[700],
                       fontSize: 18,
@@ -146,6 +149,9 @@ class HomePageState extends State<HomePage> with SingleTickerProviderStateMixin 
                 ],
               ),
             ),
+            // Add spacing between sections (optional)
+
+            // Place the GridView containing custom tiles here
             GridView.count(
               crossAxisCount: 2,
               shrinkWrap: true,
@@ -239,7 +245,7 @@ class HomePageState extends State<HomePage> with SingleTickerProviderStateMixin 
             ),
           ],
         ),
-      ),
-    );
+      ]),
+    ));
   }
 }

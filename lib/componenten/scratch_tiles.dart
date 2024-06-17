@@ -133,9 +133,9 @@ class _ScratchItemState extends State<ScratchItem> {
                         color: Colors.black,
                         size: 24,
                       ),
-                      SizedBox(width: 8),
+
                       Text(
-                        'Tab & Scratch me',
+                        'Tab & Scratch',
                         style: const TextStyle(
                           color: Colors.black,
                           fontFamily: 'Ink Free',
