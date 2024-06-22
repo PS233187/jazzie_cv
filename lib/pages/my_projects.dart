@@ -71,27 +71,27 @@ class _MyProjectsPageState extends State<MyProjectsPage> {
             padding: EdgeInsets.only(top: 60.0),
             child: ImageSlideshow(
               width: double.infinity,
-              height: 150,
+              height: 130,
               initialPage: 0,
               indicatorColor: Colors.blue,
               indicatorBackgroundColor: Colors.grey,
               children: [
-                Image.asset('assets/images/splashscreen.png', height: 150),
-                Image.asset('assets/images/samen_betalen.png', height: 150),
-                Image.asset('assets/images/userrdiagram.png', height: 150),
-                Image.asset('assets/images/groenevingers.png', height: 150),
-                Image.asset('assets/images/dashboard_youcare.png', height: 150),
-                Image.asset('assets/images/login_youcare.png', height: 150),
-                Image.asset('assets/images/eenvoud.png', height: 150),
+                Image.asset('assets/images/splashscreen.png', height: 130),
+                Image.asset('assets/images/samen_betalen.png', height: 130),
+                Image.asset('assets/images/userrdiagram.png', height: 130),
+                Image.asset('assets/images/groenevingers.png', height: 130),
+                Image.asset('assets/images/dashboard_youcare.png', height: 130),
+                Image.asset('assets/images/login_youcare.png', height: 130),
+                Image.asset('assets/images/eenvoud.png', height: 130),
               ],
               onPageChanged: (value) {
                 print('Page changed: $value');
               },
-              autoPlayInterval: 2000,
+              autoPlayInterval: 3000,
               isLoop: true,
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 5),
           Expanded(
             child: Stack(
               children: [
@@ -138,7 +138,6 @@ class _MyProjectsPageState extends State<MyProjectsPage> {
                             ScratchItem(
                               imagePath: 'assets/images/hopto.png',
                             ),
-                            // Voeg meer ScratchItems toe indien nodig
                           ],
                         ),
                       ),

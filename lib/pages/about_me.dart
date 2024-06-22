@@ -34,22 +34,22 @@ class _MyAboutmePageState extends State<MyAboutmePage> {
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(15.0)),
             ),
             shadowColor: Colors.white,
-            iconTheme: IconThemeData(color: Colors.white), // Hiermee wordt de kleur van de terugknop (back arrow) ingesteld op wit
+            iconTheme: IconThemeData(color: Colors.white),
           ),
         ),
       backgroundColor: Colors.transparent,
       body: Stack(
         children: [
           Container(
-            height: 260, // Bepaal de hoogte van de afbeelding
-            width: double.infinity, // Neem de hele breedte in
+            height: 260,
+            width: double.infinity,
             child: Image.asset(
               'assets/images/mina_en_annie.jpg',
               fit: BoxFit.cover,
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 200),
+            margin: EdgeInsets.only(top: 217),
             padding: const EdgeInsets.all(25),
             decoration: BoxDecoration(
               color: Color(0xFFFFFFFF),
@@ -90,38 +90,28 @@ class _MyAboutmePageState extends State<MyAboutmePage> {
                         children: [
                           PersonalItem(
                             imagePath: 'assets/images/family.jpg',
-                            // Voeg het juiste afbeeldingspad toe
                             personalItem: 'Family',
-                            // Voeg de juiste persoonlijke itemnaam toe
-                            subTitle: 'The most important thing for me.', // Voeg de juiste subtitel toe
+                            subTitle: 'The most important thing for me.',
                           ),
                           PersonalItem(
                             imagePath: 'assets/images/mina.jpg',
-                            // Voeg het juiste afbeeldingspad toe
                             personalItem: 'My dog',
-                            // Voeg de juiste persoonlijke itemnaam toe
-                            subTitle: 'The sweetest dog ever. Yes im a dog mom.', // Voeg de juiste subtitel toe
+                            subTitle: 'The sweetest dog ever. Yes im a dog mom.',
                           ),
                           PersonalItem(
                             imagePath: 'assets/images/art.jpg',
-                            // Voeg het juiste afbeeldingspad toe
                             personalItem: 'Creative',
-                            // Voeg de juiste persoonlijke itemnaam toe
                             subTitle: 'Coding, drawing, painting, desgining, editing there are lots of way i like to be creative!', // Voeg de juiste subtitel toe
                           ),
                           PersonalItem(
                             imagePath: 'assets/images/workingout.png',
-                            // Voeg het juiste afbeeldingspad toe
                             personalItem: 'Working out',
-                            // Voeg de juiste persoonlijke itemnaam toe
-                            subTitle: 'I dont like it but it does make me feel good lol.', // Voeg de juiste subtitel toe
+                            subTitle: 'I dont like it but it does make me feel good lol.',
                           ),
                           PersonalItem(
                             imagePath: 'assets/images/cartoon_one.png',
-                            // Voeg het juiste afbeeldingspad toe
                             personalItem: 'travel',
-                            // Voeg de juiste persoonlijke itemnaam toe
-                            subTitle: 'Lets go today!', // Voeg de juiste subtitel toe
+                            subTitle: 'Lets go today!',
                           ),
                         ],
                       ),
@@ -132,7 +122,7 @@ class _MyAboutmePageState extends State<MyAboutmePage> {
             ),
           ),
           Positioned(
-            bottom: 600, // Plaats de tekst bovenop de afbeelding
+            bottom: 600,
             left: 0,
             right: 0,
             child: Column(

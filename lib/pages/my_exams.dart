@@ -9,8 +9,6 @@ class MyExamsPage extends StatefulWidget {
 }
 
 class _MyExamsPageState extends State<MyExamsPage> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,22 +30,24 @@ class _MyExamsPageState extends State<MyExamsPage> {
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(15.0)),
           ),
           shadowColor: Colors.white,
-          iconTheme: IconThemeData(color: Colors.white), // Hiermee wordt de kleur van de terugknop (back arrow) ingesteld op wit
+          iconTheme: IconThemeData(
+              color: Colors
+                  .white), // Hiermee wordt de kleur van de terugknop (back arrow) ingesteld op wit
         ),
       ),
       backgroundColor: Colors.transparent,
       body: Stack(
         children: [
           Container(
-            height: 260, // Bepaal de hoogte van de afbeelding
-            width: double.infinity, // Neem de hele breedte in
+            height: 260,
+            width: double.infinity,
             child: Image.asset(
               'assets/images/exams_t.png',
               fit: BoxFit.cover,
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 200),
+            margin: EdgeInsets.only(top: 217),
             padding: const EdgeInsets.all(25),
             decoration: BoxDecoration(
               color: Color(0xFFFFFFFF),
@@ -57,13 +57,12 @@ class _MyExamsPageState extends State<MyExamsPage> {
               ),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.9), // Adjust opacity for shadow intensity
-                  offset: Offset(4.0, 4.0), // Adjust offset for shadow position
-                  blurRadius: 10.0, // Adjust blurRadius for shadow softness
+                  color: Colors.black.withOpacity(0.9),
+                  offset: Offset(4.0, 4.0),
+                  blurRadius: 10.0,
                 ),
               ],
             ),
-
             child: Center(
               child: DefaultTextStyle(
                 style: TextStyle(
@@ -95,38 +94,28 @@ class _MyExamsPageState extends State<MyExamsPage> {
                         children: [
                           ExamItem(
                             imagePath: 'assets/images/english.png',
-                            // Voeg het juiste afbeeldingspad toe
                             examItem: 'English',
-                            // Voeg de juiste persoonlijke itemnaam toe
-                            subTitle: 'Passed', // Voeg de juiste subtitel toe
+                            subTitle: 'Passed',
                           ),
                           ExamItem(
                             imagePath: 'assets/images/dutch.png',
-                            // Voeg het juiste afbeeldingspad toe
                             examItem: 'Dutch',
-                            // Voeg de juiste persoonlijke itemnaam toe
-                            subTitle: 'Passed', // Voeg de juiste subtitel toe
+                            subTitle: 'Passed',
                           ),
                           ExamItem(
                             imagePath: 'assets/images/digital.png',
-                            // Voeg het juiste afbeeldingspad toe
                             examItem: 'digital skills',
-                            // Voeg de juiste persoonlijke itemnaam toe
-                            subTitle: 'Passed', // Voeg de juiste subtitel toe
+                            subTitle: 'Passed',
                           ),
                           ExamItem(
                             imagePath: 'assets/images/figma_img.png',
-                            // Voeg het juiste afbeeldingspad toe
                             examItem: 'Elective course in graphic design',
-                            // Voeg de juiste persoonlijke itemnaam toe
-                            subTitle: 'Passed', // Voeg de juiste subtitel toe
+                            subTitle: 'Passed',
                           ),
                           ExamItem(
                             imagePath: 'assets/images/math.png',
-                            // Voeg het juiste afbeeldingspad toe
                             examItem: 'Math',
-                            // Voeg de juiste persoonlijke itemnaam toe
-                            subTitle: 'Passed', // Voeg de juiste subtitel toe
+                            subTitle: 'Passed',
                           ),
                         ],
                       ),
@@ -136,7 +125,6 @@ class _MyExamsPageState extends State<MyExamsPage> {
               ),
             ),
           ),
-
         ],
       ),
     );
