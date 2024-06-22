@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:scratcher/scratcher.dart';
-
 import '../componenten/scratch_tiles.dart';
 
 class MyProjectsPage extends StatefulWidget {

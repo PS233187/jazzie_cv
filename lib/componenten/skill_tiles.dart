@@ -59,7 +59,7 @@ class _SkillsState extends State<Skills> {
               color: Colors.white.withOpacity(0.3),
               spreadRadius: 3,
               blurRadius: 5,
-              offset: const Offset(0, 3), // changes position of shadow
+              offset: const Offset(0, 3),
             ),
           ],
         ),

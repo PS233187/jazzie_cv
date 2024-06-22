@@ -233,7 +233,6 @@ class HomePageState extends State<HomePage>
                   alignment: Alignment.center,
                   child: Image.asset(
                     'assets/images/welcome.png',
-                    // voeg hier het pad naar je afbeelding in
                     width: 200,
                     height: 150,
                   ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Emoticons extends StatelessWidget {//stless
+class Emoticons extends StatelessWidget {
   final String emoticons;
 
   const Emoticons({

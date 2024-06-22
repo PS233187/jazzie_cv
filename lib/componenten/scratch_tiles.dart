@@ -101,8 +101,8 @@ class _ScratchItemState extends State<ScratchItem> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(16),
                         ),
-                        padding: EdgeInsets.symmetric(
-                            vertical: 9, horizontal: 24),
+                        padding:
+                            EdgeInsets.symmetric(vertical: 9, horizontal: 24),
                         backgroundColor: Color(0xFF003D72),
                       ),
                       child: Text(
@@ -133,7 +133,6 @@ class _ScratchItemState extends State<ScratchItem> {
                         color: Colors.black,
                         size: 24,
                       ),
-
                       Text(
                         'Tab & Scratch',
                         style: const TextStyle(
@@ -149,7 +148,7 @@ class _ScratchItemState extends State<ScratchItem> {
                   SizedBox(
                     width: 80,
                     child: Image.asset(
-                      'assets/images/ticket_one.png', // Vervang dit met je eigen pad naar de hardcoded afbeelding
+                      'assets/images/ticket_one.png',
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -162,4 +161,3 @@ class _ScratchItemState extends State<ScratchItem> {
     );
   }
 }
-

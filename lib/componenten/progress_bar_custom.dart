@@ -4,13 +4,13 @@ class ProgressBarCustom extends StatefulWidget {
   final String skill;
   final int initialPercentage;
   final Color color;
-  final double fontSize; // Add fontSize parameter
+  final double fontSize;
 
   const ProgressBarCustom({
     required this.skill,
     required this.initialPercentage,
     required this.color,
-    required this.fontSize, // Accept fontSize
+    required this.fontSize,
     Key? key,
   }) : super(key: key);
 
@@ -55,11 +55,13 @@ class _ProgressBarCustomState extends State<ProgressBarCustom> {
             children: [
               Text(
                 widget.skill,
-                style: TextStyle(color: Colors.white, fontSize: widget.fontSize), // Use fontSize here
+                style:
+                    TextStyle(color: Colors.white, fontSize: widget.fontSize),
               ),
               Text(
                 '$_percentage%',
-                style: TextStyle(color: Colors.white, fontSize: widget.fontSize), // Use fontSize here
+                style:
+                    TextStyle(color: Colors.white, fontSize: widget.fontSize),
               ),
             ],
           ),

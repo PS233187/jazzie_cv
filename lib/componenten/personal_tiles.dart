@@ -17,7 +17,7 @@ class PersonalItem extends StatefulWidget {
 }
 
 class _PersonalItemState extends State<PersonalItem> {
-  bool isFavorite = false; // State variable to track favorite status
+  bool isFavorite = false;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class _PersonalItemState extends State<PersonalItem> {
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 3,
               blurRadius: 5,
-              offset: const Offset(0, 3), // changes position of shadow
+              offset: const Offset(0, 3),
             ),
           ],
         ),
@@ -44,10 +44,10 @@ class _PersonalItemState extends State<PersonalItem> {
               child: Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12), // Voeg borderRadius toe aan Container
+                  borderRadius: BorderRadius.circular(12),
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12), // Voeg borderRadius toe aan de afbeelding
+                  borderRadius: BorderRadius.circular(12),
                   child: Image.asset(
                     widget.imagePath,
                     fit: BoxFit.cover,
@@ -62,25 +62,25 @@ class _PersonalItemState extends State<PersonalItem> {
             ),
             Expanded(
               child: Column(
-                mainAxisSize: MainAxisSize.min, // Ensures the column takes minimum vertical space
+                mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    widget.personalItem, // Gebruik personalItem in plaats van skillName
+                    widget.personalItem,
                     style: const TextStyle(
                       color: Colors.black,
                       fontFamily: 'Ink Free',
-                      fontSize: 16, // Pas de lettergrootte aan zoals gewenst
-                      fontWeight: FontWeight.bold, // Pas de stijl aan zoals gewenst
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   const SizedBox(height: 10.0),
                   Text(
-                    widget.subTitle, // Gebruik subTitle in plaats van percentage
+                    widget.subTitle,
                     style: const TextStyle(
                       color: Colors.black,
                       fontFamily: 'Ink Free',
-                      fontSize: 14, // Pas de lettergrootte aan zoals gewenst
+                      fontSize: 14,
                     ),
                   ),
                 ],
