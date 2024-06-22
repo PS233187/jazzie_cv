@@ -110,7 +110,7 @@ class _MyProjectsPageState extends State<MyProjectsPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Exams',
+                            'Fun to scratch',
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
