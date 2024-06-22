@@ -127,18 +127,18 @@ class _MyProjectsPageState extends State<MyProjectsPage> {
                         height: 20,
                       ),
                       Expanded(
-                        child: ListView(
-                          children: [
-                            ScratchItem(
-                              imagePath: 'assets/images/cartoon_scratch.png',
-                            ),
-                            ScratchItem(
-                              imagePath: 'assets/images/help_patato.png',
-                            ),
-                            ScratchItem(
-                              imagePath: 'assets/images/hopto.png',
-                            ),
-                          ],
+                        child: ListView.builder(
+                          physics: _isScratching ? AlwaysScrollableScrollPhysics() : NeverScrollableScrollPhysics(),
+                          itemCount: 3, // Number of ScratchItems
+                          itemBuilder: (context, index) {
+                            return ScratchItem(
+                              imagePath: index == 0
+                                  ? 'assets/images/cartoon_scratch.png'
+                                  : index == 1
+                                  ? 'assets/images/help_patato.png'
+                                  : 'assets/images/hopto.png',
+                            );
+                          },
                         ),
                       ),
                     ],

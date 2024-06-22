@@ -125,7 +125,6 @@ class HomePageState extends State<HomePage>
                   padding: const EdgeInsets.fromLTRB(40.0, 10.0, 40.0, 0.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    // Vertically center content within this inner column
                     children: [
                       const Text(
                         'Welcome!',
@@ -147,7 +146,6 @@ class HomePageState extends State<HomePage>
                     ],
                   ),
                 ),
-
                 GridView.count(
                   crossAxisCount: 2,
                   shrinkWrap: true,
@@ -231,7 +229,6 @@ class HomePageState extends State<HomePage>
                     ),
                   ],
                 ),
-
                 Container(
                   alignment: Alignment.center,
                   child: Image.asset(

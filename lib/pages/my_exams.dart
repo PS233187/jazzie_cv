@@ -30,9 +30,7 @@ class _MyExamsPageState extends State<MyExamsPage> {
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(15.0)),
           ),
           shadowColor: Colors.white,
-          iconTheme: IconThemeData(
-              color: Colors
-                  .white), // Hiermee wordt de kleur van de terugknop (back arrow) ingesteld op wit
+          iconTheme: IconThemeData(color: Colors.white),
         ),
       ),
       backgroundColor: Colors.transparent,
