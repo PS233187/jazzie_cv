@@ -60,64 +60,65 @@ class HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(90.0),
-          child: Container(
-            decoration: BoxDecoration(
-              color: Color(0xFF000000),
-              borderRadius:
-                  BorderRadius.vertical(bottom: Radius.circular(15.0)),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.9),
-                  spreadRadius: 5,
-                  blurRadius: 7,
-                  offset: Offset(0, 2),
-                ),
-              ],
-            ),
-            child: AppBar(
-              title: Text(
-                'Jazzies',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: 'Aovel Sans Rounded',
-                  fontSize: 40,
-                ),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(90.0),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Color(0xFF000000),
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(15.0)),
+            // Aangepaste schaduw
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 1,
+                blurRadius: 5,
+                offset: Offset(0, 3),  // Verander de offset indien nodig
               ),
-              bottom: PreferredSize(
-                preferredSize: const Size.fromHeight(5),
-                child: SizedBox(
-                  height: 50,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 1.0),
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'CV app',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'Ink Free',
-                          fontSize: 26,
-                        ),
+            ],
+          ),
+          child: AppBar(
+            title: Text(
+              'Jazzies',
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'Aovel Sans Rounded',
+                fontSize: 40,
+              ),
+            ),
+            bottom: PreferredSize(
+              preferredSize: const Size.fromHeight(5),
+              child: SizedBox(
+                height: 50,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 1.0),
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      'CV app',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Ink Free',
+                        fontSize: 26,
                       ),
                     ),
                   ),
                 ),
               ),
-              centerTitle: true,
-              backgroundColor: Colors.transparent,
-              shape: RoundedRectangleBorder(
-                borderRadius:
-                    BorderRadius.vertical(bottom: Radius.circular(15.0)),
-              ),
-              iconTheme: IconThemeData(color: Colors.white),
             ),
+            centerTitle: true,
+            backgroundColor: Colors.black,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(15.0)),
+            ),
+            iconTheme: IconThemeData(color: Colors.white),
           ),
         ),
-        body: RefreshIndicator(
-          onRefresh: _handleRefresh,
-          child: ListView(children: [
+      ),
+      backgroundColor: Colors.white,
+      body: RefreshIndicator(
+        onRefresh: _handleRefresh,
+        child: ListView(
+          children: [
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -163,7 +164,7 @@ class HomePageState extends State<HomePage>
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        const MyExperiencePage()),
+                                    const MyExperiencePage()),
                               );
                             },
                             imagePath: 'assets/images/experience.jpg',
@@ -182,7 +183,7 @@ class HomePageState extends State<HomePage>
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        const MyProjectsPage()),
+                                    const MyProjectsPage()),
                               );
                             },
                             imagePath: 'assets/images/project.png',
@@ -201,7 +202,7 @@ class HomePageState extends State<HomePage>
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        const MyAboutmePage()),
+                                    const MyAboutmePage()),
                               );
                             },
                             imagePath: 'assets/images/aboutme.jpg',
@@ -239,7 +240,9 @@ class HomePageState extends State<HomePage>
                 ),
               ],
             ),
-          ]),
-        ));
+          ],
+        ),
+      ),
+    );
   }
 }
